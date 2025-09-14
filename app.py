@@ -28,7 +28,6 @@ import numpy as np
 import pandas as pd
 import streamlit as st
 import joblib
-import scikit-learn
 import sklearn
 from sklearn.base import BaseEstimator, TransformerMixin  # if you use them
 

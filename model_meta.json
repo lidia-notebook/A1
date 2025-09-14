@@ -1,0 +1,30 @@
+{
+  "feature_names": [
+    "previous_cancellations",
+    "booking_changes",
+    "days_in_waiting_list",
+    "required_car_parking_spaces",
+    "total_of_special_requests",
+    "country",
+    "market_segment",
+    "deposit_type",
+    "customer_type",
+    "reserved_room_type"
+  ],
+  "num_cols": [
+    "previous_cancellations",
+    "booking_changes",
+    "days_in_waiting_list",
+    "required_car_parking_spaces",
+    "total_of_special_requests"
+  ],
+  "cat_cols": [
+    "country",
+    "market_segment",
+    "deposit_type",
+    "customer_type",
+    "reserved_room_type"
+  ],
+  "threshold": 0.336,
+  "sklearn_version": "1.6.1"
+}

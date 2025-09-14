@@ -1,4 +1,24 @@
+# --- Recreate custom transformer used in pipeline ---
+import pandas as pd
+import numpy as np
+from sklearn.base import BaseEstimator, TransformerMixin
 
+class FrequencyEncoder1D(BaseEstimator, TransformerMixin):
+    def __init__(self):
+        self.freqs_ = None
+
+    def fit(self, X, y=None):
+        # Calculate frequencies for categories
+        if isinstance(X, pd.DataFrame):
+            X = X.iloc[:, 0]  # use first column if DF
+        value_counts = pd.Series(X).value_counts(normalize=True)
+        self.freqs_ = value_counts.to_dict()
+        return self
+
+    def transform(self, X):
+        if isinstance(X, pd.DataFrame):
+            X = X.iloc[:, 0]  # first column if DF
+        return pd.Series(X).map(self.freqs_).fillna(0).to_numpy().reshape(-1, 1)
 # app.py
 # Streamlit app for Hotel Cancellation Predictor
 
